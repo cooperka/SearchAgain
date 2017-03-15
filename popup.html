@@ -8,12 +8,31 @@
       body {
         font-family: Arial, sans-serif;
         font-size: 62.5%;
+        margin: 1em;
       }
       .popup {
         max-width: 40em;
       }
+      .header {
+        margin-bottom: 1em;
+      }
       .title {
         font-size: 2em;
+      }
+      .searchFieldContainer {
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: row;
+      }
+      .searchFieldLabel {
+        margin-right: .5em;
+        width: 3em;
+        align-self: center;
+        font-size: 1.4em;
+      }
+      .searchFieldInput {
+        width: 22em;
+        font-size: 1.4em;
       }
     </style>
 
@@ -25,7 +44,21 @@
   </head>
   <body>
     <div class="popup">
-      <div class="title">Search Again</div>
+      <div class="header">
+        <div class="title">Search Again</div>
+      </div>
+      <div class="searchFieldContainer">
+        <div class="searchFieldLabel">Prefix:</div>
+        <input class="searchFieldInput" id="prefix">
+      </div>
+      <div class="searchFieldContainer">
+        <div class="searchFieldLabel">Infix:</div>
+        <input disabled class="searchFieldInput" value="[Selected text will be inserted here]">
+      </div>
+      <div class="searchFieldContainer">
+        <div class="searchFieldLabel">Suffix:</div>
+        <input class="searchFieldInput" id="suffix">
+      </div>
     </div>
   </body>
 </html>

@@ -15,6 +15,7 @@
   ],
   "background": {
     "scripts": [
+      "constants.js",
       "background.js"
     ],
     "persistent": false

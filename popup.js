@@ -1,5 +1,4 @@
-const PREFIX_KEY = 'prefix';
-const SUFFIX_KEY = 'suffix';
+const { PREFIX_KEY, SUFFIX_KEY } = chrome.extension.getBackgroundPage().constants;
 
 function handleInput(key, event) {
   const value = event.target.value;

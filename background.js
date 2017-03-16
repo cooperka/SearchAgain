@@ -1,3 +1,5 @@
+const { PREFIX_KEY, SUFFIX_KEY } = constants;
+
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: 'search',
@@ -6,6 +8,11 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 
   chrome.contextMenus.onClicked.addListener((info) => {
-    console.log('Selected:', info.selectionText);
+    chrome.storage.sync.get([PREFIX_KEY, SUFFIX_KEY], (values) => {
+      const prefix = values[PREFIX_KEY] || '';
+      const suffix = values[SUFFIX_KEY] || '';
+
+      console.log('Selected:', prefix, info.selectionText, suffix);
+    });
   });
 });

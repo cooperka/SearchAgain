@@ -1,2 +1,20 @@
-document.addEventListener('DOMContentLoaded', function() {
+const PREFIX_KEY = 'prefix';
+const SUFFIX_KEY = 'suffix';
+
+function handleInput(key, event) {
+  const value = event.target.value;
+  chrome.storage.sync.set({ [key]: value });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const prefix = document.getElementById(PREFIX_KEY);
+  const suffix = document.getElementById(SUFFIX_KEY);
+
+  chrome.storage.sync.get([PREFIX_KEY, SUFFIX_KEY], (values) => {
+    prefix.value = values[PREFIX_KEY] || '';
+    suffix.value = values[SUFFIX_KEY] || '';
+
+    prefix.addEventListener('change', handleInput.bind(null, PREFIX_KEY));
+    suffix.addEventListener('change', handleInput.bind(null, SUFFIX_KEY));
+  });
 });

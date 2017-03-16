@@ -12,5 +12,11 @@
   "permissions": [
     "contextMenus",
     "storage"
-  ]
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  }
 }

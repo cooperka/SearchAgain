@@ -12,7 +12,10 @@ chrome.runtime.onInstalled.addListener(() => {
       const prefix = values[PREFIX_KEY] || '';
       const suffix = values[SUFFIX_KEY] || '';
 
-      console.log('Selected:', prefix, info.selectionText, suffix);
+      const searchString = encodeURIComponent(`${prefix} ${info.selectionText} ${suffix}`);
+      const url = `https://www.google.com/search?q=${searchString}`;
+
+      chrome.tabs.create({ url });
     });
   });
 });
